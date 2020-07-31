@@ -10,11 +10,15 @@ import javafx.scene.control.Button;
 import javafx.scene.Parent;
 
 
-public class Controller {
-
-	public Button button;
+public class Controller  {
+	
+	Stage infoWindow;
+	
+	public Button close;
 	
 	public void handleButtonClick() {
-		
+		System.out.println("you have exited the application");
+	
+		System.exit(0);
 	}
 }
