@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -7,7 +9,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerCreateDFA">
    <top>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="154.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <MenuBar>
               <menus>
@@ -23,6 +25,21 @@
                 </Menu>
               </menus>
             </MenuBar>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="A deterministic finite accepter or dfa is defined by the quintuple" textAlignment="CENTER" wrappingWidth="547.13671875">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="M = (Q,Σ, δ, q0, F)" textAlignment="CENTER" wrappingWidth="592.84375">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Where:" textAlignment="CENTER" wrappingWidth="108.13671875">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
          </children>
       </VBox>
    </top>
