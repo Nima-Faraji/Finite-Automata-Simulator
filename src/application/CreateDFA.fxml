@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerCreateDFA">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerCreateDFA">
    <top>
-      <VBox prefHeight="154.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <VBox BorderPane.alignment="CENTER">
          <children>
-            <MenuBar>
+            <MenuBar prefHeight="18.0" prefWidth="600.0">
               <menus>
                 <Menu mnemonicParsing="false" text="Edit">
                   <items>
@@ -25,7 +28,12 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="A deterministic finite accepter or dfa is defined by the quintuple" textAlignment="CENTER" wrappingWidth="547.13671875">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hint:" wrappingWidth="32.8095703125">
+               <VBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </VBox.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="A Deterministic Finite Automata or DFA is defined by the quintuple" textAlignment="CENTER" wrappingWidth="547.13671875">
                <font>
                   <Font size="14.0" />
                </font>
@@ -35,11 +43,33 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Where:" textAlignment="CENTER" wrappingWidth="108.13671875">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Where:    " textAlignment="CENTER" wrappingWidth="108.13671875">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Q = all states" textAlignment="CENTER" wrappingWidth="597.31298828125">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sigma = all variables in the alphabet" textAlignment="CENTER" wrappingWidth="599.43212890625">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Delta = transitions" textAlignment="CENTER" wrappingWidth="599.134765625">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="q0= starting state" textAlignment="CENTER" wrappingWidth="600.33837890625">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" F= final state " textAlignment="CENTER" wrappingWidth="600.080078125" />
+            <Line endX="493.29290771484375" endY="-0.41421353816986084" startX="-100.0" />
          </children>
       </VBox>
    </top>
