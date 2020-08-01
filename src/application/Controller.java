@@ -38,11 +38,6 @@ public class Controller  {
 //		
 	}
 
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
-
-	public MenuItem close;
 	public MenuItem createDFA;
 	
 	public void handleCloseButtonClick() {
