@@ -5,7 +5,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <top>
       <VBox prefHeight="178.0" prefWidth="600.0" BorderPane.alignment="CENTER">
@@ -15,12 +14,12 @@
               <menus>
                   <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Close" onAction="#handleButtonClick"/>
+                        <MenuItem fx:id="close" mnemonicParsing="false" onAction="#handleCloseButtonClick" text="Close" />
                     </items>
                   </Menu>
                 <Menu mnemonicParsing="false" text="Automaton">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Create a New DFA"/>
+                    <MenuItem fx:id="createDFA" mnemonicParsing="false" onAction="#handleCreateDFA" text="Create a New DFA" />
                   </items>
                 </Menu>
                   <Menu mnemonicParsing="false" text="Window">
@@ -35,7 +34,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="About" onAction="#handleButtonClick" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleCloseButtonClick" text="About" />
                   </items>
                 </Menu>
               </menus>

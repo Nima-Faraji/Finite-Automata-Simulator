@@ -21,7 +21,7 @@ public class Main extends Application {
 			primaryStage.setTitle("Finite Automata Simulator");
 			
 			Parent root = FXMLLoader.load(getClass().getResource("Sample.fxml")); 	
-			Scene scene = new Scene(root,400,400);
+			Scene scene = new Scene(root,600,600);
 			
 			primaryStage.setScene(scene);
 			primaryStage.show();
