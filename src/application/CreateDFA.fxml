@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -10,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerCreateDFA">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerCreateDFA">
    <top>
       <VBox BorderPane.alignment="CENTER">
          <children>
@@ -32,13 +38,16 @@
                <VBox.margin>
                   <Insets left="10.0" top="10.0" />
                </VBox.margin>
-            </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="A Deterministic Finite Automata or DFA is defined by the quintuple" textAlignment="CENTER" wrappingWidth="547.13671875">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="M = (Q,Σ, δ, q0, F)" textAlignment="CENTER" wrappingWidth="592.84375">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="A Deterministic Finite Automata or DFA is defined by the quintuple" textAlignment="CENTER" wrappingWidth="600.13671875">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="M = (Q,Σ, δ, q0, F)" textAlignment="CENTER" wrappingWidth="599.84375">
                <font>
                   <Font size="14.0" />
                </font>
@@ -52,25 +61,131 @@
                <VBox.margin>
                   <Insets />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sigma = all variables in the alphabet" textAlignment="CENTER" wrappingWidth="599.43212890625">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Σ (Sigma) = all variables in the alphabet" textAlignment="CENTER" wrappingWidth="599.43212890625">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Delta = transitions" textAlignment="CENTER" wrappingWidth="599.134765625">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="δ (Delta) = transitions" textAlignment="CENTER" wrappingWidth="599.134765625">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Text>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="q0= starting state" textAlignment="CENTER" wrappingWidth="600.33837890625">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" F= final state " textAlignment="CENTER" wrappingWidth="600.080078125" />
-            <Line endX="493.29290771484375" endY="-0.41421353816986084" startX="-100.0" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" F= final state " textAlignment="CENTER" wrappingWidth="600.080078125">
+               <font>
+                  <Font size="14.0" />
+               </font></Text>
+            <Line endX="493.29290771484375" endY="-0.41421353816986084" startX="-106.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin></Line>
          </children>
       </VBox>
    </top>
+   <bottom>
+      <SplitPane dividerPositions="0.23745819397993312" prefHeight="191.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <VBox prefHeight="191.0" prefWidth="600.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="149.0" text="List Q - all states: ">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="84.0" prefHeight="20.0" prefWidth="149.0" text="List q0 - starting state:">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="121.0" prefHeight="20.0" prefWidth="149.0" text="List F - final state:">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="149.0" text="List Σ (Sigma):">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="47.0" prefHeight="20.0" prefWidth="149.0" text="List δ (Delta):">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="189.0" prefWidth="310.0">
+               <children>
+                  <VBox layoutX="2.0" layoutY="-1.0" prefHeight="191.0" prefWidth="270.0">
+                     <children>
+                        <TextField>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField layoutX="10.0" layoutY="10.0">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField layoutX="10.0" layoutY="47.0">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField layoutX="10.0" layoutY="84.0">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Button mnemonicParsing="false" prefHeight="19.0" prefWidth="66.0" text="Use Table">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets left="12.0" top="6.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <Button layoutX="346.0" layoutY="147.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="93.0" text="Create a DFA" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </bottom>
 </BorderPane>
