@@ -22,7 +22,7 @@ import javafx.scene.Parent;
 public class Controller  {
 	
 
-	public Button close;
+	
 	public Button about;
 
 	public void handleButtonClick() {
@@ -55,7 +55,8 @@ public class Controller  {
 			createDFAWindow.initModality(Modality.APPLICATION_MODAL);  // block other user interactions
 			
 			Parent root = FXMLLoader.load(getClass().getResource("CreateDFA.fxml")); 	
-			Scene scene = new Scene(root,400,400);
+			Scene scene = new Scene(root,600,400);
+			createDFAWindow.setResizable(false); // this will not allow the user the resize the window/stage
 			
 			createDFAWindow.setScene(scene);
 			createDFAWindow.showAndWait();
