@@ -13,7 +13,8 @@ import javafx.scene.Parent;
 
 public class Main extends Application {
 	
-	Button button;
+	
+	 Button button;
 	
 	@Override
 	public void start(Stage primaryStage) {

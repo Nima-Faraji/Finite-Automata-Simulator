@@ -107,7 +107,7 @@
                <children>
                   <VBox prefHeight="191.0" prefWidth="600.0">
                      <children>
-                        <Label prefHeight="20.0" prefWidth="149.0" text="List Q - all states: ">
+                        <Label fx:id="setOfAllStatesLabel" prefHeight="20.0" prefWidth="149.0" text="List Q - all states: ">
                            <padding>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
@@ -140,7 +140,7 @@
                <children>
                   <VBox layoutX="2.0" layoutY="-1.0" prefHeight="191.0" prefWidth="270.0">
                      <children>
-                        <TextField>
+                        <TextField fx:id="setOfAllStates">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
@@ -164,7 +164,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField layoutX="10.0" layoutY="84.0">
+                        <TextField fx:id="setOfAllSigma" layoutX="10.0" layoutY="84.0">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
@@ -172,7 +172,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </TextField>
-                        <Button mnemonicParsing="false" prefHeight="19.0" prefWidth="66.0" text="Use Table">
+                        <Button fx:id="deltaTableButton" mnemonicParsing="false" onAction="#handleDeltaTableButton" prefHeight="19.0" prefWidth="66.0" text="Use Table">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
@@ -182,7 +182,7 @@
                         </Button>
                      </children>
                   </VBox>
-                  <Button layoutX="346.0" layoutY="147.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="93.0" text="Create a DFA" />
+                  <Button fx:id="createDFAButton" layoutX="346.0" layoutY="147.0" mnemonicParsing="false" onAction="#handleCreateDFAButton" prefHeight="28.0" prefWidth="93.0" text="Create a DFA" />
                </children>
             </AnchorPane>
         </items>
