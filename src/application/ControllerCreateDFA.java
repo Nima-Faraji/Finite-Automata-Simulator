@@ -142,7 +142,7 @@ public class ControllerCreateDFA {
 		return true;
 		
 	}
-	@SuppressWarnings("unchecked")
+
 	public void handleDeltaTableButton() {
 		try {
 			Stage deltaTableWindow = new Stage();
