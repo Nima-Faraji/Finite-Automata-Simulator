@@ -1,6 +1,6 @@
 package application;
 
-
+//a change from the feature branch
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -12,8 +12,7 @@ import javafx.scene.Parent;
 
 
 public class Main extends Application {
-// I made a change from the second branch	
-	Button button;
+
 	
 	@Override
 	public void start(Stage primaryStage) {
