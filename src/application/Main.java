@@ -13,7 +13,7 @@ import javafx.scene.Parent;
 
 public class Main extends Application {
 	
-//THis is a change from feature 1	
+//THis is a change from feature 2	
 	 Button button;
 	
 	@Override
