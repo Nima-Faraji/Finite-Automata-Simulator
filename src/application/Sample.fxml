@@ -15,7 +15,7 @@
                   <Menu mnemonicParsing="false" text="File">
                     <items>
                         <MenuItem mnemonicParsing="false" onAction="#handleCloseButtonClick" text="Close" />
-                    </items>
+                    </items>a
                   </Menu>
                 <Menu mnemonicParsing="false" text="Automaton">
                   <items>
