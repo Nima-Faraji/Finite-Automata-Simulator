@@ -5,12 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="146.0" prefWidth="224.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.ControllerCreateDFA">
+<AnchorPane prefHeight="146.0" prefWidth="224.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerCreateDFA">
    <children>
-      <BorderPane prefHeight="200.0" prefWidth="224.0">
+      <BorderPane fx:id="myBorderPane" prefHeight="194.0" prefWidth="224.0">
          <top>
-            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="62.0" prefWidth="224.0" BorderPane.alignment="CENTER">
                <children>
                   <MenuBar>
                     <menus>
@@ -29,6 +28,14 @@
                </children>
             </VBox>
          </top>
+         <left>
+            <VBox fx:id="vboxLabels" prefHeight="163.0" prefWidth="99.0" BorderPane.alignment="CENTER">
+
+            </VBox>
+         </left>
+         <center>
+            <Button mnemonicParsing="false" text="Button" BorderPane.alignment="CENTER" />
+         </center>
       </BorderPane>
    </children>
 </AnchorPane>
