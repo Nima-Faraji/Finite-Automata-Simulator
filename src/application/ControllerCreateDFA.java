@@ -3,14 +3,21 @@ package application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.fxml.*;
+import javafx.geometry.Insets;
 
 import java.util.Vector;
 
+import javafx.collections.FXCollections;
 import javafx.event.*;
 
 
@@ -37,7 +44,18 @@ public class ControllerCreateDFA {
 	 int numOfStates;
 	 
 	 int numOfSigma;
+	 
 	
+	 @FXML
+	 BorderPane myBorderPane;
+	 
+	 @FXML
+	 Button myButton;
+	 
+	 @FXML
+	 VBox vboxLabels;
+	
+	 
 	public void handleCloseButtonClick() {
 		System.out.println("you have exited the application");
 	
@@ -124,24 +142,66 @@ public class ControllerCreateDFA {
 		return true;
 		
 	}
+	@SuppressWarnings("unchecked")
 	public void handleDeltaTableButton() {
 		try {
 			Stage deltaTableWindow = new Stage();
 			
-			deltaTableWindow.setTitle("Transitions");
+			deltaTableWindow.setTitle("Enter the Transitions");
 			
 			deltaTableWindow.initModality(Modality.APPLICATION_MODAL);  // block other user interactions
-			
-			Parent root = FXMLLoader.load(getClass().getResource("deltaTable.fxml")); 	
-			Scene scene = new Scene(root,300,300);
 			deltaTableWindow.setResizable(false); // this will not allow the user the resize the window/stage
 			
+			
+			GridPane grid = new GridPane();
+			
+			Label label = new Label();
+			
+			ChoiceBox<String> choiceBox;
+			
+			grid.setPadding(new Insets(20,20,20,20));
+			
+			grid.setVgap(0);
+			grid.setHgap(0);
+			
+			grid.setGridLinesVisible(true);
+			
+			for (int i = 1; i <= setOfStatesVec.size(); i++) {
+				label = new Label(" "+ setOfStatesVec.elementAt(i-1)+ " ");	
+				label.setStyle("-fx-font: 18 arial;");
+				GridPane.setConstraints(label, 0, i);			
+				grid.getChildren().add(0, label);
+			}
+			
+			for (int i = 1; i <= setOfSigmaVec.size(); i++) {
+				label = new Label(" "+ setOfSigmaVec.elementAt(i-1)+ " ");	
+				label.setStyle("-fx-font: 18 arial;");
+				GridPane.setConstraints(label, i,0);		
+				grid.getChildren().add(0, label);
+			}
+	
+			
+			
+			for (int i = 1; i <= setOfStatesVec.size(); i++)
+				for (int j = 1; j <= setOfSigmaVec.size(); j++) {
+					choiceBox = new ChoiceBox<>();
+					choiceBox.getItems().addAll(setOfStatesVec);
+					GridPane.setConstraints(choiceBox, j,i);
+					grid.getChildren().add(0, choiceBox);
+				}
+			
+			
+		
+			Scene scene = new Scene(grid,110+(40*(setOfSigmaVec.size())),110+(40*(setOfStatesVec.size())));
 			deltaTableWindow.setScene(scene);
+			
+		
+			
 			deltaTableWindow.showAndWait();
-			
-			
+		
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
+
 }
