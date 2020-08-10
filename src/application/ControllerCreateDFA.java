@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -40,6 +41,8 @@ public class ControllerCreateDFA {
 	 Vector<String> setOfStatesVec;
 	 
 	 Vector<String> setOfSigmaVec;
+	 
+	 Vector<Vector<String>> stateTransition;
 	 
 	 int numOfStates;
 	 
@@ -152,8 +155,12 @@ public class ControllerCreateDFA {
 			deltaTableWindow.initModality(Modality.APPLICATION_MODAL);  // block other user interactions
 			deltaTableWindow.setResizable(false); // this will not allow the user the resize the window/stage
 			
+			Button addTransitions = new Button("Add the Transitions");
+			
+			VBox layout = new VBox(10);
 			
 			GridPane grid = new GridPane();
+			
 			
 			Label label = new Label();
 			
@@ -186,13 +193,24 @@ public class ControllerCreateDFA {
 				for (int j = 1; j <= setOfSigmaVec.size(); j++) {
 					choiceBox = new ChoiceBox<>();
 					choiceBox.getItems().addAll(setOfStatesVec);
+					choiceBox.getItems().add("null");
+					
+					//set a Default value to null
+					choiceBox.setValue("null");
+					
 					GridPane.setConstraints(choiceBox, j,i);
 					grid.getChildren().add(0, choiceBox);
 				}
 			
-			
 		
-			Scene scene = new Scene(grid,110+(40*(setOfSigmaVec.size())),110+(40*(setOfStatesVec.size())));
+			VBox.setMargin(addTransitions, new Insets(10,10,10,100));  // down up 
+			
+			layout.getChildren().addAll(grid, addTransitions);
+			
+			
+			//addTransitions.setOnAction(e -> getChoice());
+		
+			Scene scene = new Scene(layout,100+(50*(setOfSigmaVec.size())),100+(35*(setOfStatesVec.size())));
 			deltaTableWindow.setScene(scene);
 			
 		
