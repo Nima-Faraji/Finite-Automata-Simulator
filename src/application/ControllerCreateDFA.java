@@ -16,6 +16,9 @@ import javafx.stage.Stage;
 import javafx.fxml.*;
 import javafx.geometry.Insets;
 
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 import java.util.Vector;
 
 import javafx.collections.FXCollections;
@@ -47,6 +50,8 @@ public class ControllerCreateDFA {
 	 int numOfStates;
 	 
 	 int numOfSigma;
+	  
+	 Queue<ChoiceBox<String>> transitionQueue;
 	 
 	
 	 @FXML
@@ -166,6 +171,8 @@ public class ControllerCreateDFA {
 			
 			ChoiceBox<String> choiceBox;
 			
+			transitionQueue = new LinkedList<ChoiceBox<String>>();
+			
 			grid.setPadding(new Insets(20,20,20,20));
 			
 			grid.setVgap(0);
@@ -198,17 +205,19 @@ public class ControllerCreateDFA {
 					//set a Default value to null
 					choiceBox.setValue("null");
 					
+					transitionQueue.add(choiceBox);
+					
 					GridPane.setConstraints(choiceBox, j,i);
 					grid.getChildren().add(0, choiceBox);
 				}
 			
 		
-			VBox.setMargin(addTransitions, new Insets(10,10,10,100));  // down up 
+			VBox.setMargin(addTransitions, new Insets(10,10,10,100)); 
 			
 			layout.getChildren().addAll(grid, addTransitions);
 			
 			
-			//addTransitions.setOnAction(e -> getChoice());
+			addTransitions.setOnAction(e -> getChoice(deltaTableWindow));
 		
 			Scene scene = new Scene(layout,100+(50*(setOfSigmaVec.size())),100+(35*(setOfStatesVec.size())));
 			deltaTableWindow.setScene(scene);
@@ -221,5 +230,21 @@ public class ControllerCreateDFA {
 			e.printStackTrace();
 		}
 	}
-
+	
+	public void getChoice(Stage deltaTableWindow) {
+		
+		stateTransition = new Vector<Vector<String>>();
+		ChoiceBox<String> tempBox= new ChoiceBox<String>();
+		
+		for (int i = 0; i < setOfStatesVec.size(); i++)
+			for (int j = 0; j < setOfSigmaVec.size(); j++) {
+				tempBox = transitionQueue.remove();
+				System.out.println(" " +tempBox.getValue() + " ");
+				stateTransition.add(new Vector<String>());
+				(stateTransition.elementAt(i)).add(j, tempBox.getValue());
+			}
+		deltaTableWindow.close();
+	}
+	
 }
+	
