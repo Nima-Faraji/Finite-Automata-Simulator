@@ -7,6 +7,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -75,10 +77,9 @@ public class ControllerCreateDFA {
 		}
 		
 		
-		
-	
-			
 	}
+	
+	
 	public boolean validateSigma(String name) {
 		int tempIndex = 0;
 		int firstIndex;
@@ -110,7 +111,19 @@ public class ControllerCreateDFA {
 		
 		return true;	
 	}
+	
+	// information alerts for user responses 
+	@FXML
+	private void alertInfo (ActionEvent event) {
+		Alert a1 = new Alert(Alert.AlertType.INFORMATION);
+		a1.setTitle("Listing States");
+		a1.setContentText("Make sure to separate your states with commas ");
+		a1.setHeaderText(null);
+		a1.show();
+	}
+	
 	public boolean validateStates(String name) {
+			
 		int tempIndex = 0;
 		int firstIndex;
 		String temp;
@@ -118,6 +131,7 @@ public class ControllerCreateDFA {
 		numOfStates = 0;
 		
 		while(true) {
+	
 		firstIndex = name.indexOf(',',tempIndex+1);
 		if (firstIndex == -1) {
 			numOfStates++;
