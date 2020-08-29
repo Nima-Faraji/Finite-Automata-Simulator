@@ -96,6 +96,11 @@
                <VBox.margin>
                   <Insets />
                </VBox.margin></Line>
+            <Text layoutX="10.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="M = (Q,Σ, δ, q0, F)" textAlignment="CENTER" wrappingWidth="599.84375">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
          </children>
       </VBox>
    </top>
@@ -137,9 +142,17 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="189.0" prefWidth="310.0">
                <children>
-                  <VBox layoutX="2.0" layoutY="-1.0" prefHeight="191.0" prefWidth="270.0">
+                  <VBox layoutY="-9.0" prefHeight="191.0" prefWidth="270.0">
                      <children>
-                        <TextField fx:id="setOfAllStates" onMouseClicked="#alertInfo" onMouseEntered="#alertInfo" onMousePressed="#alertInfo" promptText="Separate states with commas">
+                        <TextField fx:id="setOfAllStates" promptText="Separate states with commas">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="15.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="startingState" layoutX="10.0" layoutY="10.0" promptText="Only list one starting state">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
@@ -147,15 +160,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField layoutX="10.0" layoutY="10.0" promptText="Only list one starting state">
-                           <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </padding>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </VBox.margin>
-                        </TextField>
-                        <TextField layoutX="10.0" layoutY="47.0" promptText="Remember, there can be multiple final states">
+                        <TextField fx:id="setOfAllFinishStates" layoutX="10.0" layoutY="47.0" promptText="Remember, there can be multiple final states">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
@@ -182,6 +187,10 @@
                      </children>
                   </VBox>
                   <Button fx:id="createDFAButton" layoutX="346.0" layoutY="147.0" mnemonicParsing="false" onAction="#handleCreateDFAButton" prefHeight="28.0" prefWidth="93.0" text="Create a DFA" />
+                  <Label fx:id="statesError" ellipsisString="" layoutX="270.0" layoutY="6.0" />
+                  <Label fx:id="startStateError" layoutX="270.0" layoutY="48.0" />
+                  <Label fx:id="finishStateError" layoutX="270.0" layoutY="85.0" />
+                  <Label layoutX="270.0" layoutY="124.0" />
                </children>
             </AnchorPane>
         </items>

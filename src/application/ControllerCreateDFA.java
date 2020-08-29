@@ -25,8 +25,7 @@ import javafx.event.*;
 
 
 public class ControllerCreateDFA {
-	
-	
+	 
 	 @FXML
 	 TextField setOfAllStates;
 	
@@ -34,7 +33,23 @@ public class ControllerCreateDFA {
 	 TextField setOfAllSigma;
 	 
 	 @FXML
+	 TextField startingState;
+	 
+	 @FXML
+	 TextField setOfAllFinishStates;
+	 
+	 
+	 @FXML
 	 Label setOfAllStatesLabel;
+	 
+	 @FXML
+	 Label statesListError;
+	 
+	 @FXML
+	 Label startStateError;
+	 
+	 @FXML
+	 Label finishStateError;
 	 
 	 @FXML
 	 Button deltaTableButton;
@@ -42,7 +57,7 @@ public class ControllerCreateDFA {
 	 Vector<String> setOfStatesVec;
 	 
 	 Vector<String> setOfSigmaVec;
-	 
+
 	 int numOfStates;
 	 
 	 int numOfSigma;
@@ -57,7 +72,6 @@ public class ControllerCreateDFA {
 	 @FXML
 	 VBox vboxLabels;
 	
-	 
 	public void handleCloseButtonClick() {
 		System.out.println("you have exited the application");
 	
@@ -66,16 +80,82 @@ public class ControllerCreateDFA {
 	
 	public void handleCreateDFAButton() {
 		
+		// error checking for states
 		
-		String setStates = setOfAllStates.getText();	
+		String setStates = setOfAllStates.getText();
+		
 		if (!validateStates(setStates)) {
+			setOfAllStates.setStyle("-fx-background-color: red;"); // the Textfield.setStyle function will change the background color of the text field if there is an error
+			statesListError.setText("Fix format"); // text appears next to the text field
 			System.out.println("error");
 		}
+		
+		// error checking for starting state
+		// note: there should only be one starting state
+		
+		String startState = startingState.getText();
+		
+		if (!validateStart(startState)) {
+			
+			startingState.setStyle("-fx-background-color: red;"); // the Textfield.setStyle function will change the background color of the text field if there is an error
+			startStateError.setText("Only 1 starting state"); // text appears next to the text field
+			System.out.println("error");
+			
+		}
+		
+		
+		// error checking for final state
+		// note: there can be multiple final states
+		
+		String finalStates = setOfAllFinishStates.getText();
+		
+		if (!validateStart(finalStates)) {
+			
+			setOfAllFinishStates.setStyle("-fx-background-color: red;"); // the Textfield.setStyle function will change the background color of the text field if there is an error
+			finishStateError.setText("Fix Format"); // text appears next to the text field
+			System.out.println("error");
+			
+		}
+		
+		// error checking for sigma
+		
 		String setSigma = setOfAllSigma.getText();
+		
 		if (!validateSigma(setSigma)) {
 			System.out.println("error");
 		}
 		
+	 
+		
+		
+	}
+	
+	public boolean validateStart(String name) {
+		
+		boolean singleStart = true;
+		
+		// note: in java strings cant be treated as arrays like c++
+		
+		 // Creating array of string length 
+        char[] ch = new char[name.length()]; 
+  
+        // Copy character by character into array 
+        for (int i = 0; i < name.length(); i++) { 
+            ch[i] = name.charAt(i); 
+        } 
+	
+        // checking if any character in the array is a comma or a space because that would mean
+        // that there is more than one starting state
+        
+		for(int i = 0; i < name.length(); i++) {
+			
+			if(ch[i] == ',' || ch[i] == ' ') {
+				singleStart = false;
+				break;
+			}
+		}
+		
+		return singleStart;
 		
 	}
 	
@@ -112,39 +192,79 @@ public class ControllerCreateDFA {
 		return true;	
 	}
 	
-	// information alerts for user responses 
-	@FXML
-	private void alertInfo (ActionEvent event) {
-		Alert a1 = new Alert(Alert.AlertType.INFORMATION);
-		a1.setTitle("Listing States");
-		a1.setContentText("Make sure to separate your states with commas ");
-		a1.setHeaderText(null);
-		a1.show();
-	}
-	
-	public boolean validateStates(String name) {
-			
+	public boolean validateFinishStates(String name) {
+		
+		// this should be similar to checking the starting states
+		
 		int tempIndex = 0;
 		int firstIndex;
+		
 		String temp;
+		
 		setOfStatesVec = new Vector<String>();
-		numOfStates = 0;
+		
+		numOfStates = 0; // the number of states user wants the FSM to have
 		
 		while(true) {
 	
 		firstIndex = name.indexOf(',',tempIndex+1);
+		
 		if (firstIndex == -1) {
 			numOfStates++;
 			setOfStatesVec.add(name.substring(tempIndex+1));
 			break;
 		}
-		if (tempIndex==0) {
+		
+		if (tempIndex == 0) {
 			setOfStatesVec.add(name.substring(tempIndex, firstIndex));
 			numOfStates++;
 			
 			tempIndex = firstIndex;
 			continue;
 		}
+		
+		temp = name.substring(tempIndex+1, firstIndex);
+		setOfStatesVec.add(temp);
+		numOfStates++;
+	
+		tempIndex = firstIndex;
+		
+		}
+		
+		return true;
+		
+		
+	}
+	
+	public boolean validateStates(String name) {
+			
+		int tempIndex = 0;
+		int firstIndex;
+		
+		String temp;
+		
+		setOfStatesVec = new Vector<String>();
+		
+		numOfStates = 0; // the number of states user wants the FSM to have
+		
+		while(true) {
+	
+		firstIndex = name.indexOf(',',tempIndex+1);
+		
+		if (firstIndex == -1) {
+			numOfStates++;
+			setOfStatesVec.add(name.substring(tempIndex+1));
+			break;
+		}
+		
+		if (tempIndex == 0) {
+			setOfStatesVec.add(name.substring(tempIndex, firstIndex));
+			numOfStates++;
+			
+			tempIndex = firstIndex;
+			continue;
+		}
+		
 		temp = name.substring(tempIndex+1, firstIndex);
 		setOfStatesVec.add(temp);
 		numOfStates++;
@@ -156,6 +276,8 @@ public class ControllerCreateDFA {
 		return true;
 		
 	}
+	
+	
 
 	public void handleDeltaTableButton() {
 		try {
